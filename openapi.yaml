@@ -4,7 +4,7 @@ info:
   title: Test
   version: "4"
   description: |
-    This is a test change again
+    This is a test change again and again
 
 paths:
   /customer/{customerId}:
