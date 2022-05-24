@@ -2,8 +2,6 @@ name: Generate typescript types form openapi.yaml
 
 on:
   push:
-    branches:    
-      - master
 
 jobs:
   openapi-changed:
@@ -19,6 +17,7 @@ jobs:
       run: |
         # Diff openapi.yaml with origin/master
         diff=$(git diff origin/master openapi.yaml | wc -l)
+        echo $GITHUB_REF
         echo "diff: $diff"
         echo "::set-output name=openapi_changed::$diff"
   generate-types:
