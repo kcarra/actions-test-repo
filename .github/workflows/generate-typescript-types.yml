@@ -26,4 +26,4 @@ jobs:
     - uses: actions/checkout@v3
     - name: Generate types
       run: |
-        echo "This only gets called when it changes"
+        echo "This only gets called when it changess"
