@@ -1,0 +1,18 @@
+openapi: "3.0.0"
+
+info:
+  title: Test
+  version: "4"
+  description: |
+    This is a test
+
+paths:
+  /customer/{customerId}:
+    get:
+      summary: Retrieve a customer.
+      tags:
+        - Customers
+      operationId: getCustomer
+      responses:
+        "200":
+          description: OK

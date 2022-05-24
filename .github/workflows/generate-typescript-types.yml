@@ -1,0 +1,32 @@
+name: Generate typescript types form openapi.yaml
+
+on:
+  push:
+    branches:    
+      - master
+
+jobs:
+  openapi-changed:
+    runs-on: ubuntu-latest
+    outputs:
+      openapi_changed: ${{ steps.check_file_changed.outputs.openapi_changed }}
+    steps:
+    - uses: actions/checkout@v3
+      with:
+        fetch-depth: 0
+    - name: Check for changes
+      id: check_file_changed
+      run: |
+        # Diff openapi.yaml with origin/master
+        diff=$(git diff origin/master openapi.yaml | wc -l)
+        echo "diff: $diff"
+        echo "::set-output name=openapi_changed::$diff"
+  generate-types:
+    runs-on: ubuntu-latest
+    needs: [ openapi-changed ]
+    if: ${{ needs.openapi-changed.outputs.openapi_changed > 0 }}
+    steps:
+    - uses: actions/checkout@v3
+    - name: Generate types
+      run: |
+        echo "This only gets called when it changes"
