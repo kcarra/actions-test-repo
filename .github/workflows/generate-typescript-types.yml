@@ -19,7 +19,7 @@ jobs:
         diff=$(git diff origin/master openapi.yaml | wc -l)
         echo $GITHUB_REF
         echo "diff: $diff"
-        echo "difffffff"
+        echo "difffffff diff"
         git diff HEAD^ HEAD --name-only
         echo "::set-output name=openapi_changed::$diff"
   generate-types:
