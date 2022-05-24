@@ -1,4 +1,4 @@
-name: Generate typescript types form openapi.yaml
+name: Generate typescript types form openapi.yamls
 
 on:
   push:
