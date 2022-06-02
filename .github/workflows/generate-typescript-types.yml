@@ -19,6 +19,6 @@ jobs:
     - name: Check for changes
       id: check_file_changed
       run: |
-        diff=$(git diff HEAD^ HEAD --name-only | grep -c openapi.yaml) || 0
-        echo "diff: $diff"
+        diff=$(git diff HEAD^ HEAD --name-only | grep -c openapi.yaml) || true
+        echo "diff default: $diff"
         echo "::set-output name=openapi_changed::$diff"
