@@ -6,6 +6,7 @@ on:
 jobs:
   openapi-changed:
     runs-on: ubuntu-latest
+    needs: sleep-echo
     outputs:
       openapi_changed: ${{ steps.check_file_changed.outputs.openapi_changed }}
     steps:
