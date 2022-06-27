@@ -1,14 +1,13 @@
 name: Generate typescript types from openapi.yaml
 
 on:
-  push:
   workflow_run:
     workflows: [sleep then echo]
-    types: [completed]
+    types:
+      - completed
 
 jobs:
   openapi-changed:
-    if: ${{ github.event.workflow_run.conclusion == 'success' }}
     runs-on: ubuntu-latest
     outputs:
       openapi_changed: ${{ steps.check_file_changed.outputs.openapi_changed }}
