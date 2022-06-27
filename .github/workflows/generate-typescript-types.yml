@@ -3,9 +3,8 @@ name: Generate typescript types from openapi.yaml
 on:
   push:
   workflow_run:
-    workflows: ["sleep then echo"]
-    types:
-      - completed
+    workflows: [sleep then echo]
+    types: [completed]
 
 jobs:
   openapi-changed:
