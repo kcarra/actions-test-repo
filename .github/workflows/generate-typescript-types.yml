@@ -1,8 +1,10 @@
 name: Generate typescript types from openapi.yaml
 
 on:
+  # the 1st condition
   workflow_run:
-    workflows: [sleep then echo]
+    workflows: ["sleep then echo"]
+    branches: [main]
     types:
       - completed
 
